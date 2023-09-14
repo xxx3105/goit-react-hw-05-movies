@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
+import { Suspense } from 'react';
 import { GlobalStyle } from '../GlobalStyles';
 import { Home } from '../pages/Home/Home';
 import { Movies } from '../pages/Movies/Movies';

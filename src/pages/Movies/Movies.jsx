@@ -2,19 +2,14 @@ import { useState } from 'react';
 import { fetchFilmByKeyWord } from '../../components/api';
 import { FilmList } from 'components/FilmList/FilmList';
 import DraggableWindow from 'components/DragContPan/DragContPan';
-import {
-  ButtonStld,
-  InputLabel,
-  InputSearch,
-  SearchPos,
-} from './Movies.styled';
+import { ButtonStld, InputSearch } from './Movies.styled';
 
 export const Movies = () => {
   const [tempSearchQuery, setTempSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState(0);
-  const [numberOfResults, setNumberOfResults] = useState(0);
+  //const [numberOfResults, setNumberOfResults] = useState(0);
 
   const handleSearchInputChange = e => {
     setTempSearchQuery(e.target.value);
@@ -29,7 +24,7 @@ export const Movies = () => {
         const response = await fetchFilmByKeyWord(tempSearchQuery, currentPage);
         setSearchResults(response.results);
         setNumberOfPages(response.total_pages);
-        setNumberOfResults(response.total_results);
+        //setNumberOfResults(response.total_results);
         console.log(response);
       } catch (error) {
         console.error(error);

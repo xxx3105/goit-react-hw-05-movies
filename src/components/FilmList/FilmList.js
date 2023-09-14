@@ -12,7 +12,7 @@ import {
 import Nores from 'images/Nores.png';
 
 export const FilmList = ({ searchResults }) => {
-  const [openFilmId, setOpenFilmId] = useState(null);
+  const [, setOpenFilmId] = useState(null);
 
   const handleFilmCardClick = filmId => {
     setOpenFilmId(filmId);

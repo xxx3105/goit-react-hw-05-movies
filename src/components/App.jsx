@@ -10,7 +10,6 @@ import { Container } from '../GlobalStyles';
 import { NavBar } from './NavBar/NavBar';
 import Loader from './Loader/Loader';
 import { Cast } from '../pages/Cast/Cast';
-//import Cast from 'pages/Cast';
 
 //const LazyComponent = lazy(() => import('./LazyComponent'));
 

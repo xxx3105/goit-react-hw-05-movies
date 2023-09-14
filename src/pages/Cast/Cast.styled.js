@@ -8,7 +8,7 @@ export const ContainerCast = styled.div`
 
 export const CardActors = styled.li`
   width: 150px;
-  height: 300px;
+  height: 320px;
   border-radius: 15px;
   background-color: #e3e3e3;
   margin-bottom: 15px;

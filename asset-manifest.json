@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/goit-react-hw-05-movies/static/css/main.c2895876.css",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.2f85f6da.js",
+    "static/media/Nores.png": "/goit-react-hw-05-movies/static/media/Nores.db988b39267ae67f771b.png",
+    "index.html": "/goit-react-hw-05-movies/index.html",
+    "main.c2895876.css.map": "/goit-react-hw-05-movies/static/css/main.c2895876.css.map",
+    "main.2f85f6da.js.map": "/goit-react-hw-05-movies/static/js/main.2f85f6da.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2895876.css",
+    "static/js/main.2f85f6da.js"
+  ]
+}

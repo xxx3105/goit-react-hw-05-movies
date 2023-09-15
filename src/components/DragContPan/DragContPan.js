@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../CirkularProgBar/CirkularProgBar.css'; // Файл стилей для кругового индикатора
+import '../CirkularProgBar/CirkularProgBar.css';
 import CircularProgressBar from 'components/CirkularProgBar/CirkularProgBar';
 import {
   ButtonPagi,
@@ -41,8 +41,8 @@ export const DraggableWindow = ({
     setIsDragging(false);
   };
 
-  const windowSize = 125; // Размер окна перетаскивания
-  const progressBarSize = windowSize + 20; // Размер кругового индикатора (больше размера окна)
+  const windowSize = 125;
+  const progressBarSize = windowSize + 20;
 
   return (
     <div
@@ -53,7 +53,7 @@ export const DraggableWindow = ({
         top: position.y,
         left: position.x,
         cursor: isDragging ? 'grabbing' : 'grab',
-        overflow: 'visible', // Разрешаем видимость контента, выходящего за пределы окна
+        overflow: 'visible',
       }}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
@@ -66,13 +66,12 @@ export const DraggableWindow = ({
           height: progressBarSize,
         }}
       >
-        {/* Вставляем компонент CircularProgressBar и передаем ему pageProgress */}
         <CircularProgressBar
           progress={pageProgress}
           size={progressBarSize}
           strokeWidth={5}
           style={{
-            pointerEvents: 'none', // Делаем индикатор некликабельным
+            pointerEvents: 'none',
           }}
         />
         <ContainerPagi />
@@ -86,7 +85,7 @@ export const DraggableWindow = ({
             width: '80%',
             borderBottomLeftRadius: 45,
             borderBottomRightRadius: 45,
-            zIndex: 5, // Установите z-index, чтобы элементы были над индикатором
+            zIndex: 5,
           }}
         >
           <CurPageNumb>{currentPage} </CurPageNumb>

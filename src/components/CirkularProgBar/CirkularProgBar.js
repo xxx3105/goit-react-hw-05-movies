@@ -1,8 +1,8 @@
 import React from 'react';
-import './CirkularProgBar.css'; // Файл стилей для кругового индикатора
+import './CirkularProgBar.css';
 
 const CircularProgressBar = ({ progress, size }) => {
-  const radius = size / 2.5; // Радиус кругового индикатора
+  const radius = size / 2.5;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
@@ -13,10 +13,10 @@ const CircularProgressBar = ({ progress, size }) => {
         width: size,
         height: size,
 
-        top: '35%', // Расположите по центру вертикально
-        left: '50%', // Расположите по центру горизонтально
-        transform: 'translate(-50%, -50%)', // Центрируйте по центру экрана
-        zIndex: 2, // Установите высокий z-index, чтобы индикатор был поверх других элементов
+        top: '35%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        zIndex: 2,
       }}
     >
       <svg className="circular-progress-svg" width={size} height={size}>
@@ -25,8 +25,8 @@ const CircularProgressBar = ({ progress, size }) => {
           r={radius}
           cx="50%"
           cy="50%"
-          stroke="#1A1A1A" // Цвет индикатора
-          strokeWidth="9" // Ширина индикатора
+          stroke="#1A1A1A"
+          strokeWidth="9"
           strokeDasharray={`${circumference} ${circumference}`}
           strokeDashoffset={strokeDashoffset}
         />

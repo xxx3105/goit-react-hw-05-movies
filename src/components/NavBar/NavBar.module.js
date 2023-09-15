@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const StldHeader = styled.div`
-  position: fixed;
+export const StldHeader = styled.header`
   width: 100%;
   top: 0%;
   display: flex;
@@ -13,11 +12,19 @@ export const StldHeader = styled.div`
   border-bottom: 1px solid black;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  position: fixed;
 
   > nav {
     display: flex;
     margin: 0 auto;
+    padding: 20px;
   }
+`;
+
+export const PosButtonsNotJump = styled.div`
+  position: absolute;
+  left: 650px;
+  top: 20px;
 `;
 
 export const StldLink = styled(NavLink)`

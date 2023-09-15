@@ -9,7 +9,6 @@ export const MovieDetails = ({ filmId }) => {
   const [showPrew, setShowPrew] = useState(false);
   const [detailedInfo, setDetailedInfo] = useState(null);
   const location = useLocation();
-  console.log(filmId);
 
   const getDetInfo = async filmId => {
     try {

@@ -47,19 +47,13 @@ export const Hinweise = styled.span`
   font-size: 10px;
   left: 70px;
   bottom: -20px;
-  opacity: 0; /* Устанавливаем начальное значение */
-  transition: opacity 0.3s; /* Добавляем плавный переход */
-
-  &:hover {
-    //  opacity: 0; /* При наведении устанавливаем opacity в 0 */
-  }
+  opacity: 0;
 `;
 
 export const ButtonPagi = styled.button`
   user-select: none;
   :hover + ${Hinweise} {
     opacity: 1;
-    /* При ховере на ButtonPagi показываем Hinweise */
   }
 `;
 
@@ -69,6 +63,6 @@ export const ButtonsName = styled.span`
   left: 30px;
   top: 30px;
   :hover + ${Hinweise} {
-    opacity: 1; /* При ховере на ButtonPagi показываем Hinweise */
+    opacity: 1;
   }
 `;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-//import { defaultImg } from '../../pages/Home';
+
 import {
   DescrAnker,
   DescrHov,
@@ -11,7 +11,7 @@ import {
 } from './FilmList.styled';
 import Nores from 'images/Nores.png';
 
-export const FilmList = ({ searchResults }) => {
+export const FilmList = ({ searchResults, currentUrl }) => {
   const [, setOpenFilmId] = useState(null);
 
   const handleFilmCardClick = filmId => {
@@ -23,7 +23,7 @@ export const FilmList = ({ searchResults }) => {
       <GlobalListOfFilms>
         {searchResults.map((result, id) => (
           <FilmItemCard key={id}>
-            <Link to={`/movies/${result.id}`}>
+            <Link to={`/movies/${result.id}`} state={currentUrl}>
               <FilmItemImg
                 src={
                   result.poster_path
@@ -32,7 +32,7 @@ export const FilmList = ({ searchResults }) => {
                 }
                 width={250}
                 alt={result.original_title}
-                onClick={() => handleFilmCardClick(result.id)} // Передаем id фильма при клике
+                onClick={() => handleFilmCardClick(result.id)}
               />
 
               <NameOfFilm>

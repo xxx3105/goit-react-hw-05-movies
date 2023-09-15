@@ -1,13 +1,16 @@
-import { StldHeader, StldLink } from './NavBar.module';
+import { PosButtonsNotJump, StldHeader, StldLink } from './NavBar.module';
 
 export const NavBar = () => {
   return (
     <StldHeader>
-      {/* <p>LOGO</p> */}
       <nav>
-        <StldLink to="/">Home</StldLink>
-        <StldLink to="/movies">Movies</StldLink>
+        <PosButtonsNotJump>
+          <StldLink to="/">Home</StldLink>
+          <StldLink to="/movies">Movies</StldLink>
+        </PosButtonsNotJump>
       </nav>
     </StldHeader>
   );
 };
+
+export default NavBar;

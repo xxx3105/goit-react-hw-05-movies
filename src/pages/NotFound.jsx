@@ -6,3 +6,5 @@ export const NotFound = () => {
     </main>
   );
 };
+
+export default NotFound;

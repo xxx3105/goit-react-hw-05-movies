@@ -35,15 +35,29 @@ export const StlLink = styled(NavLink)`
   border-radius: 5px;
   border: 1px solid #1a1a1a;
 
-  transition: background-color 0.3s, color 0.3s; /* Добавляем плавный переход */
+  transition: background-color 0.3s, color 0.3s;
 
   &:hover {
-    background-color: #1f1f1f; /* Цвет фона при наведении */
-    color: gray; /* Цвет текста при наведении */
+    background-color: #1f1f1f;
+    color: gray;
   }
 `;
 
 export const NameOfPos = styled.span`
   color: #1a1a1a;
   font-weight: 600;
+`;
+
+export const StlLinkRet = styled.div`
+  width: 80px;
+  height: 35px;
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    color: gray;
+  }
 `;

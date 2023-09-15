@@ -35,10 +35,8 @@ export const DescrHov = styled.div`
   width: 165px;
   height: 190px;
   color: white;
-  /* left: -82px; */
   left: -82px;
-  /* top: -300px; */
-  top: -500px;
+  top: -380px;
   user-select: none;
   background-color: black;
   position: absolute;
@@ -46,7 +44,7 @@ export const DescrHov = styled.div`
   opacity: 0.75;
   text-overflow: ellipsis;
   border-radius: 15px;
-  -webkit-line-clamp: 8; /* Ограничение на количество строк */
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
   opacity: 0;
   transition: top 0.4s ease-in-out;
@@ -65,7 +63,6 @@ export const FilmItemCard = styled.li`
   user-select: none;
   &:hover {
     ${DescrHov} {
-      /* left: -82px; */
       z-index: 1;
       opacity: 0.79;
       top: -300px;
@@ -80,6 +77,7 @@ export const FilmItemImg = styled.img`
   width: 167px;
   height: 220px;
   user-select: none;
+  border-bottom: 1px solid #1a1a1a;
 `;
 
 export const NameOfFilm = styled.p`
@@ -87,12 +85,13 @@ export const NameOfFilm = styled.p`
   margin-left: 5px;
   margin-right: 5px;
   font-size: 18px;
-
-  width: 155px;
-  height: 65px;
   color: #1a1a1a;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji;
+
+  width: 155px;
+  height: 65px;
+
   text-decoration: none !important;
   user-select: none;
   font-weight: 600;
@@ -100,6 +99,6 @@ export const NameOfFilm = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Ограничение на количество строк */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 `;

@@ -1,17 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
-import { GlobalStyle } from '../GlobalStyles';
-import { Home } from '../pages/Home/Home';
-import { Movies } from '../pages/Movies/Movies';
-import { Reviews } from '../pages/Reviews';
-import { NotFound } from 'pages/NotFound';
-import FilmCard from './FilmCard/FilmCard';
+import { lazy } from 'react';
 import { Container } from '../GlobalStyles';
-import { NavBar } from './NavBar/NavBar';
-import Loader from './Loader/Loader';
-import { Cast } from '../pages/Cast/Cast';
+import { GlobalStyle } from '../GlobalStyles';
 
-//const LazyComponent = lazy(() => import('./LazyComponent'));
+const NavBar = lazy(() => import('./NavBar/NavBar'));
+const Loader = lazy(() => import('./Loader/Loader'));
+const Home = lazy(() => import('../pages/Home/Home'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+const FilmCard = lazy(() => import('./FilmCard/FilmCard'));
+const Cast = lazy(() => import('../pages/Cast/Cast'));
+const Reviews = lazy(() => import('../pages/Reviews/Reviews'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const App = () => {
   return (

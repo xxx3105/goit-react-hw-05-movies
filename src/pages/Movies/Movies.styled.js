@@ -24,3 +24,7 @@ export const InputSearch = styled.input`
   border: 3px solid gray;
   margin-bottom: 35px;
 `;
+
+export const TitleSearch = styled.h2`
+  margin-bottom: 15px;
+`;

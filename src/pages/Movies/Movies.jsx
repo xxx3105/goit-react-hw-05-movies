@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { fetchFilmByKeyWord } from '../../components/api';
 import { FilmList } from 'components/FilmList/FilmList';
 import DraggableWindow from 'components/DragContPan/DragContPan';
@@ -14,11 +14,13 @@ export const Movies = () => {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
-
-  const searchParams = new URLSearchParams(location.search);
-  const queryParams = new URLSearchParams(location.search);
-
-  const currentUrl = location.pathname + location.search;
+  const locSearch = location.search;
+  const searchParams = useMemo(
+    () => new URLSearchParams(locSearch),
+    [locSearch]
+  );
+  const queryParams = new URLSearchParams(locSearch);
+  const currentUrl = location.pathname + locSearch;
 
   const handleSearchInputChange = e => {
     setTempSearchQuery(e.target.value);
@@ -89,7 +91,7 @@ export const Movies = () => {
 
       fetchDataFromUrl();
     }
-  }, [location.search]);
+  }, [searchParams]);
 
   return (
     <div>

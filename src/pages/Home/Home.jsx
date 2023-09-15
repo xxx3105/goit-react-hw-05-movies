@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { fetchPopular } from '../../components/api';
 import { FilmList } from 'components/FilmList/FilmList';
 import { Container } from 'GlobalStyles';
@@ -14,8 +14,11 @@ export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
-
-  const searchParams = new URLSearchParams(location.search);
+  const locSearch = location.search;
+  const searchParams = useMemo(
+    () => new URLSearchParams(locSearch),
+    [locSearch]
+  );
   const currentUrl = location.pathname + location.search;
   const pageProgress = Math.round(currentPage / (numberOfPages / 100));
 
@@ -38,11 +41,12 @@ export const Home = () => {
     } else {
       fetchMoviePopular(currentPage); // Загрузка начальной страницы
     }
-  }, [location.search]);
+  }, [location.search, currentPage, searchParams]);
 
   const loadNextPage = async () => {
     try {
       const nextPage = currentPage + 1;
+
       await fetchPopular(nextPage);
       setCurrentPage(nextPage);
       searchParams.set('page', nextPage.toString());

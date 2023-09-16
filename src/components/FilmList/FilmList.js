@@ -14,6 +14,8 @@ import Nores from 'images/Nores.png';
 export const FilmList = ({ searchResults, currentUrl }) => {
   const [, setOpenFilmId] = useState(null);
 
+  //const location = useLocation();
+
   const handleFilmCardClick = filmId => {
     setOpenFilmId(filmId);
   };

@@ -10,16 +10,15 @@ export const MovieDetails = ({ filmId }) => {
   const [detailedInfo, setDetailedInfo] = useState(null);
   const location = useLocation();
 
-  const getDetInfo = async filmId => {
-    try {
-      const responseDetInfo = await fetchFilmDetInfo(filmId);
-      setDetailedInfo(responseDetInfo);
-    } catch (error) {
-      console.error('Произошла ошибка:', error);
-    }
-  };
-
   useEffect(() => {
+    const getDetInfo = async filmId => {
+      try {
+        const responseDetInfo = await fetchFilmDetInfo(filmId);
+        setDetailedInfo(responseDetInfo);
+      } catch (error) {
+        console.error('Произошла ошибка:', error);
+      }
+    };
     if (filmId) {
       getDetInfo(filmId);
     }

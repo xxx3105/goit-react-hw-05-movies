@@ -1,11 +1,11 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchPopular } from '../../components/api';
 import { FilmList } from 'components/FilmList/FilmList';
 import { Container } from 'GlobalStyles';
 import DraggableWindow from 'components/DragContPan/DragContPan';
 import { TitelGen } from './Home.styled';
 import Loader from 'components/Loader/Loader';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 export const Home = () => {
   const [popularResults, setPopularResults] = useState([]);
@@ -15,17 +15,14 @@ export const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const locSearch = location.search;
-  const searchParams = useMemo(
-    () => new URLSearchParams(locSearch),
-    [locSearch]
-  );
-  const currentUrl = location.pathname + location.search;
+  const [searchParams] = useSearchParams();
+  const currentUrl = location.pathname + locSearch;
   const pageProgress = Math.round(currentPage / (numberOfPages / 100));
 
   useEffect(() => {
-    async function fetchMoviePopular(page) {
+    async function fetchMoviePopular(currentPage) {
       try {
-        const data = await fetchPopular(page);
+        const data = await fetchPopular(currentPage);
         setPopularResults(data.results);
         setNumberOfPages(data.total_pages);
         setIsLoading(false);
@@ -33,21 +30,18 @@ export const Home = () => {
         console.log(error);
       }
     }
-
     const page = searchParams.get('page');
     if (page) {
       setCurrentPage(parseInt(page, 10));
       fetchMoviePopular(page);
     } else {
-      fetchMoviePopular(currentPage); // Загрузка начальной страницы
+      fetchMoviePopular(currentPage);
     }
-  }, [location.search, currentPage, searchParams]);
+  }, [currentPage, searchParams]);
 
   const loadNextPage = async () => {
     try {
       const nextPage = currentPage + 1;
-
-      await fetchPopular(nextPage);
       setCurrentPage(nextPage);
       searchParams.set('page', nextPage.toString());
       navigate({ search: searchParams.toString() });

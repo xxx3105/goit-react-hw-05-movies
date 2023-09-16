@@ -13,19 +13,18 @@ export const Reviews = () => {
   const { filmId } = useParams();
 
   useEffect(() => {
+    const getPreviews = async filmId => {
+      try {
+        const responsePrew = await fetchPreview(filmId);
+        setFilmPrew(responsePrew.results);
+      } catch (error) {
+        console.error('Произошла ошибка:', error);
+      } finally {
+        console.log('finally');
+      }
+    };
     getPreviews(filmId);
   }, [filmId]);
-
-  const getPreviews = async filmId => {
-    try {
-      const responsePrew = await fetchPreview(filmId);
-      setFilmPrew(responsePrew.results);
-    } catch (error) {
-      console.error('Произошла ошибка:', error);
-    } finally {
-      console.log('finally');
-    }
-  };
 
   return (
     <ContainerRevie>

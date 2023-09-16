@@ -14,18 +14,18 @@ import {
 export const Cast = () => {
   const [filmActors, setFilmActors] = useState([]);
   const { filmId } = useParams();
-  const getActors = async filmId => {
-    try {
-      const responseActors = await fetchActors(filmId);
-      setFilmActors(responseActors.cast);
-    } catch (error) {
-      console.error('Произошла ошибка:', error);
-    } finally {
-      console.log('finally');
-    }
-  };
 
   useEffect(() => {
+    const getActors = async filmId => {
+      try {
+        const responseActors = await fetchActors(filmId);
+        setFilmActors(responseActors.cast);
+      } catch (error) {
+        console.error('Произошла ошибка:', error);
+      } finally {
+        console.log('finally');
+      }
+    };
     getActors(filmId);
   }, [filmId]);
 
